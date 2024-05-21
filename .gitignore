@@ -1,0 +1,6 @@
+build/
+dist/
+env/
+analisis_lexico/
+__pycache__/
+codigo.txt
