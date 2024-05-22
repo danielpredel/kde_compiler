@@ -94,9 +94,31 @@ def analizador_lexico(codigo):
             if row == 1:
                 analisis.append([lexema,tokens[3],sub_tokens[13],row_archivo,col_archivo-len(lexema),col_archivo])
             elif row == 2:
-                analisis.append([lexema,tokens[0],sub_tokens[0],row_archivo,col_archivo-len(lexema),col_archivo])
+                if '+' in lexema:
+                    signo = lexema[:1]
+                    numero = lexema[1:]
+                    analisis.append([signo,tokens[3],sub_tokens[13],row_archivo,col_archivo-len(lexema),col_archivo-len(lexema)+1])
+                    analisis.append([numero,tokens[0],sub_tokens[0],row_archivo,col_archivo-len(lexema)+1,col_archivo])
+                elif '-' in lexema:
+                    signo = lexema[:1]
+                    numero = lexema[1:]
+                    analisis.append([signo,tokens[3],sub_tokens[14],row_archivo,col_archivo-len(lexema),col_archivo-len(lexema)+1])
+                    analisis.append([numero,tokens[0],sub_tokens[0],row_archivo,col_archivo-len(lexema)+1,col_archivo])
+                else:
+                    analisis.append([lexema,tokens[0],sub_tokens[0],row_archivo,col_archivo-len(lexema),col_archivo])
             elif row == 4:
-                analisis.append([lexema,tokens[0],sub_tokens[1],row_archivo,col_archivo-len(lexema),col_archivo])
+                if '+' in lexema:
+                    signo = lexema[:1]
+                    numero = lexema[1:]
+                    analisis.append([signo,tokens[3],sub_tokens[13],row_archivo,col_archivo-len(lexema),col_archivo-len(lexema)+1])
+                    analisis.append([numero,tokens[0],sub_tokens[1],row_archivo,col_archivo-len(lexema)+1,col_archivo])
+                elif '-' in lexema:
+                    signo = lexema[:1]
+                    numero = lexema[1:]
+                    analisis.append([signo,tokens[3],sub_tokens[14],row_archivo,col_archivo-len(lexema),col_archivo-len(lexema)+1])
+                    analisis.append([numero,tokens[0],sub_tokens[1],row_archivo,col_archivo-len(lexema)+1,col_archivo])
+                else:
+                    analisis.append([lexema,tokens[0],sub_tokens[1],row_archivo,col_archivo-len(lexema),col_archivo])
             elif row == 5:
                 if lexema in palabras_reservadas:
                     analisis.append([lexema,tokens[2],lexema.upper(),row_archivo,col_archivo-len(lexema),col_archivo])
