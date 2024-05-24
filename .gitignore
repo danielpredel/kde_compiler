@@ -2,5 +2,6 @@ build/
 dist/
 env/
 analisis_lexico/
+analisis_sintactico/
 __pycache__/
 codigo.txt
