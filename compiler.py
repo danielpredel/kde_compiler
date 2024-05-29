@@ -1,5 +1,6 @@
 import sys
 import lexico
+from sintactico import AnalizadorSintactico
 from tabulate import tabulate
 
 if __name__ == "__main__":
@@ -9,6 +10,7 @@ if __name__ == "__main__":
         archivo = sys.argv[1]
         
         # Analisis lexico
+        # Necesita refactorizacion a POO
         print("Analisis Lexico en Progreso")
         codigo = lexico.leer_archivo(archivo)
         analisis, errores, _ = lexico.analizador_lexico(codigo)
@@ -18,4 +20,9 @@ if __name__ == "__main__":
         
         # Analisis Sintactico
         print("Analisis Sintactico en Progreso")
-        
+        parser = AnalizadorSintactico(analisis)
+        # parser.while_prueba()
+        # parser.arbol_prueba()
+        root = parser.analisis_sintactico()
+        if root != None:
+            parser.tree_to_json(root)

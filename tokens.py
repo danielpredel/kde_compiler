@@ -50,6 +50,7 @@ tokens = ["NUMERO",
 # 32    PUNTO_Y_COMA
 # 33    INCREMENTO
 # 34    DECREMENTO
+# 35    END
 
 sub_tokens = ["ENTERO","REAL","IF","ELSE","DO",
               "WHILE","SWITCH","CASE","INTEGER","DOUBLE",
@@ -57,6 +58,6 @@ sub_tokens = ["ENTERO","REAL","IF","ELSE","DO",
               "MULTIPLICACION","DIVISION","MODULO","POTENCIA","MENOR",
               "MENOR_IGUAL","MAYOR","MAYOR_IGUAL","DIFERENTE","IGUAL",
               "AND","OR","PARENTESIS_I","PARENTESIS_D","LLAVE_I",
-              "LLAVE_D","COMA","PUNTO_Y_COMA","INCREMENTO","DECREMENTO"]
+              "LLAVE_D","COMA","PUNTO_Y_COMA","INCREMENTO","DECREMENTO", "END"]
 
-palabras_reservadas = ["if","else","do","while","switch","case","integer","double","main","cin","cout"]
+palabras_reservadas = ["if","else","do","while","switch","case","integer","double","main","cin","cout", "end"]
